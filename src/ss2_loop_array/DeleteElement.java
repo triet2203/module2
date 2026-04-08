@@ -25,6 +25,7 @@ public class DeleteElement {
             for (int i = index; i < n - 1; i++) {
                 arr[i] = arr[i + 1];
             }
+            arr[n - 1] = 0;
             n--;
             for (int i = 0; i < n; i++) {
                 System.out.print(arr[i] + " ");

@@ -13,10 +13,10 @@ public class CountCharOfString {
         for (int i = 0; i < str.length(); i++) {
             if (c == str.charAt(i)) {
                 count++;
-            } else {
-                System.out.println("Không có ký tự này trong chuỗi");
-                return;
             }
+        }
+        if (count == 0) {
+            System.out.println("Không có ký tự này trong chuỗi");
         }
         System.out.println("Tổng ký tự " + c + " trong chuỗi " + str + ": " + count);
     }

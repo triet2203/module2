@@ -11,18 +11,22 @@ public class PrimeNumber {
         int N = 2;
 
         while (count < numbers) {
-            boolean isPrime = true;
-            for (int i = 2; i <= Math.sqrt(N); i++) {
-                if (N % i == 0) {
-                    isPrime = false;
-                    break;
-                }
-            }
-            if (isPrime) {
+            if (isPrime(N)) {
                 System.out.print(N + " ");
                 count++;
             }
             N++;
         }
+    }
+    public static boolean isPrime(int n) {
+        if (n < 2) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(n) ; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
