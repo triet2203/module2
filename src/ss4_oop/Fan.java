@@ -49,6 +49,7 @@ public class Fan {
         this.color = color;
     }
 
+    @Override
     public String toString() {
         if (on) {
             return "Fan is on: speed = " + speed + ", color = " + color + ", radius = " + radius;
