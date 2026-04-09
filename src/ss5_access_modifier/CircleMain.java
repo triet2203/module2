@@ -1,6 +1,6 @@
 package ss5_access_modifier;
 
-public class TestCircle {
+public class CircleMain {
     public static void main(String[] args) {
         Circle c1 = new Circle();
         System.out.println("Radius: " + c1.getRadius());
