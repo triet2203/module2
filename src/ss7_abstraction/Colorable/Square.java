@@ -1,4 +1,4 @@
-package ss7_abstract.Colorable;
+package ss7_abstraction.Colorable;
 
 public class Square implements Colorable{
     private double side;

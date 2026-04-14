@@ -1,4 +1,4 @@
-package ss7_abstract.Colorable;
+package ss7_abstraction.Colorable;
 
 public class Main {
     public static void main(String[] args) {

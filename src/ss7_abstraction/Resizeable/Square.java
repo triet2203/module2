@@ -1,4 +1,4 @@
-package ss7_abstract.Resizeable;
+package ss7_abstraction.Resizeable;
 
 public class Square implements Resizeable {
     private double side;

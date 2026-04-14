@@ -1,4 +1,4 @@
-package ss7_abstract.Resizeable;
+package ss7_abstraction.Resizeable;
 
 public class Rectangle implements Resizeable {
     private double height;
