@@ -1,5 +1,6 @@
 package ss11_generic.excersice.treemap;
 
+import java.util.Set;
 import java.util.TreeMap;
 
 public class WordCount {
@@ -18,7 +19,8 @@ public class WordCount {
             }
         }
 
-        for (String key : map.keySet()) {
+        Set<String> keys = map.keySet();
+        for (String key : keys) {
             System.out.println(key + " : " + map.get(key));
         }
     }
