@@ -56,7 +56,6 @@ public class Main {
                     System.exit(0);
             }
         }
-
     }
 
     private static void searchProduct(Scanner sc, ProductController controller) {
