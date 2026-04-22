@@ -12,4 +12,5 @@ public interface IService {
     List<Product> search(String name);
     List<Product> sortAsc();
     List<Product> sortDesc();
+    List<Product> sortName();
 }

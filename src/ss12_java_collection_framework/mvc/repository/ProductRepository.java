@@ -20,6 +20,8 @@ public class ProductRepository {
         products.add(new Product(8, "Huawei", 6000));
         products.add(new Product(9, "Lenovo", 8000));
         products.add(new Product(10, "Asus", 5000));
+        products.add(new Product(11, "Samsung", 5500));
+        products.add(new Product(12, "Apple", 7000));
     }
 
     public boolean add(Product p) {
@@ -64,6 +66,12 @@ public class ProductRepository {
     public List<Product> sortDesc() {
         List<Product> sortedList = new ArrayList<>(products);
         sortedList.sort(Comparator.comparing(Product::getPrice).reversed());
+        return sortedList;
+    }
+
+    public List<Product> sortName() {
+        List<Product> sortedList = new ArrayList<>(products);
+        sortedList.sort(Comparator.comparing((Product p) -> p.getName().toLowerCase()).thenComparing(Product::getId));
         return sortedList;
     }
 }

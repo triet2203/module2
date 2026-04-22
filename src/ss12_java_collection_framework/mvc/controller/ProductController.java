@@ -36,4 +36,8 @@ public class ProductController {
     public List<Product> sortDesc() {
         return productService.sortDesc();
     }
+
+    public List<Product> sortName() {
+        return productService.sortName();
+    }
 }

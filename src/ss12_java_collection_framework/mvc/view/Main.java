@@ -19,7 +19,8 @@ public class Main {
             System.out.println("5. Tìm kiếm sản phẩm theo tên sản phẩm");
             System.out.println("6. Sắp xếp sản phẩm tăng dần theo giá");
             System.out.println("7. Sắp xếp sản phẩm giảm dần theo giá");
-            System.out.println("8. Thoát");
+            System.out.println("8. Sắp xếp sản phẩm theo tên");
+            System.out.println("9. Thoát");
             System.out.print("Nhập lựa chọn: ");
             int choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
@@ -53,6 +54,12 @@ public class Main {
                     }
                     break;
                 case 8:
+                    List<Product> sortByName = controller.sortName();
+                    for (Product p : sortByName) {
+                        System.out.println(p);
+                    }
+                    break;
+                case 9:
                     System.exit(0);
             }
         }

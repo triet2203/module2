@@ -43,4 +43,9 @@ public class ProductService implements IService {
     public List<Product> sortDesc() {
         return productRepository.sortDesc();
     }
+
+    @Override
+    public List<Product> sortName() {
+        return productRepository.sortName();
+    }
 }
