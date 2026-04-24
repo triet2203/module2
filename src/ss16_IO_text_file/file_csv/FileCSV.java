@@ -11,12 +11,14 @@ public class FileCSV {
              BufferedReader bufferedReader = new BufferedReader(fileReader);) {
             String line;
             String[] data;
+            String code;
+            String name;
             while ((line = bufferedReader.readLine()) != null) {
                 data = line.split(",");
 
                 int id = Integer.parseInt(data[0]);
-                String code = data[1].replaceAll("\"","");
-                String name = data[2].replaceAll("\"","");
+                code = data[1].replaceAll("\"","");
+                name = data[2].replaceAll("\"","");
 
                 System.out.println("ID: " + id + ", Code: " + code + ", Name: " + name);
             }

@@ -2,6 +2,7 @@ package ss12_java_collection_framework.mvc.view;
 
 import ss12_java_collection_framework.mvc.entity.Product;
 import ss12_java_collection_framework.mvc.controller.ProductController;
+import ss12_java_collection_framework.mvc.utils.validate.ValidateInput;
 
 import java.util.List;
 import java.util.Scanner;
@@ -21,8 +22,7 @@ public class Main {
             System.out.println("7. Sắp xếp sản phẩm giảm dần theo giá");
             System.out.println("8. Sắp xếp sản phẩm theo tên");
             System.out.println("9. Thoát");
-            System.out.print("Nhập lựa chọn: ");
-            int choice = Integer.parseInt(sc.nextLine());
+            int choice = ValidateInput.checkChoice();
             switch (choice) {
                 case 1:
                     List<Product> list = controller.findAll();
@@ -32,6 +32,7 @@ public class Main {
                     break;
                 case 2:
                     addProduct(sc, controller);
+                    break;
                 case 3:
                     editProduct(sc, controller);
                     break;
@@ -61,6 +62,9 @@ public class Main {
                     break;
                 case 9:
                     System.exit(0);
+                default:
+                    System.out.println("Không có lựa chọn này, vui lòng nhập lại");
+                    break;
             }
         }
     }

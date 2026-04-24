@@ -2,6 +2,7 @@ package ss12_java_collection_framework.mvc.repository;
 
 import ss12_java_collection_framework.mvc.entity.Product;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -9,23 +10,20 @@ import java.util.List;
 public class ProductRepository {
     private static ArrayList<Product> products = new ArrayList<>();
 
-    static {
-        products.add(new Product(1, "Apple", 3000));
-        products.add(new Product(2, "Samsung", 1000));
-        products.add(new Product(3, "Xiaomi", 9000));
-        products.add(new Product(4, "Oppo", 500));
-        products.add(new Product(5, "Nokia", 700));
-        products.add(new Product(6, "Vivo", 2000));
-        products.add(new Product(7, "Realme", 4000));
-        products.add(new Product(8, "Huawei", 6000));
-        products.add(new Product(9, "Lenovo", 8000));
-        products.add(new Product(10, "Asus", 5000));
-        products.add(new Product(11, "Samsung", 5500));
-        products.add(new Product(12, "Apple", 7000));
+    public boolean add(Product p) {
+        try (FileWriter fileWriter = new FileWriter("src/ss12_java_collection_framework/mvc/data/input.csv", true);
+             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);) {
+            bufferedWriter.write(convertProduceToString(p));
+            bufferedWriter.newLine();
+            return true;
+        } catch (IOException e) {
+            System.out.println("Không thể ghi vào file");
+            return false;
+        }
     }
 
-    public boolean add(Product p) {
-        return products.add(p);
+    private String convertProduceToString(Product product) {
+        return product.getId() + "," + product.getName() + "," + product.getPrice();
     }
 
     public boolean edit(int id, String newName, double newPrice) {
@@ -44,7 +42,22 @@ public class ProductRepository {
     }
 
     public List<Product> findAll() {
-        return new ArrayList<>(products);
+        List<Product> product = new ArrayList<>();
+
+        try (FileReader fileReader = new FileReader("src/ss12_java_collection_framework/mvc/data/input.csv");
+             BufferedReader bufferedReader = new BufferedReader(fileReader);) {
+            String line;
+            String[] data;
+            while ((line = bufferedReader.readLine()) != null) {
+                data = line.split(",");
+                product.add(new Product(Integer.parseInt(data[0]), data[1], Double.parseDouble(data[2])));
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Không tìm thấy file");
+        } catch (IOException e) {
+            System.out.println("Không đọc được file");
+        }
+        return product;
     }
 
     public List<Product> search(String name) {
