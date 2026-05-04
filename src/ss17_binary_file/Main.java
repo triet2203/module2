@@ -7,8 +7,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         ProductManager productManager = new ProductManager();
 
-
-
         while (true) {
             System.out.println("1. Thêm sản phẩm");
             System.out.println("2. Hiển thị danh sách sản phẩm");
