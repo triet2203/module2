@@ -19,7 +19,8 @@ public class CustomerView {
             System.out.println("1. Hiển thị danh sách khách hàng");
             System.out.println("2. Thêm mới khách hàng");
             System.out.println("3. Sửa thông tin khách hàng");
-            System.out.println("4. Xóa khách hàng");
+            System.out.println("4. Tìm khách hàng");
+            System.out.println("5. Xóa khách hàng");
             System.out.println("0. Quay lại");
             System.out.print("Nhập lựa chọn: ");
             choice = Integer.parseInt(scanner.nextLine());
@@ -35,6 +36,9 @@ public class CustomerView {
                     updateCustomer();
                     break;
                 case 4:
+                    findCustomer();
+                    break;
+                case 5:
                     deleteCustomer();
                     break;
                 case 0:
@@ -91,6 +95,16 @@ public class CustomerView {
             System.out.println("Cập nhật thông tin khách hàng thành công");
         } else {
             System.out.println("Cập nhật thất bại");
+        }
+    }
+
+    public static void findCustomer() {
+        int id = ValidateInput.inputPositiveInt("Nhập ID khách hàng cần tìm: ");
+
+        if (customerController.findById(id) == null) {
+            System.out.println("Không tìm thấy khách hàng");
+        } else {
+            System.out.println(customerController.findById(id));
         }
     }
 
